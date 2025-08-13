@@ -10,16 +10,16 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-white flex flex-col">
-      <main className="w-full flex-1 flex flex-col items-center justify-center px-6 gap-8">
+    <div className="w-full min-h-screen flex flex-col">
+      <main className="w-full flex-1 flex flex-col items-center justify-center gap-8">
         <Oldyoung className="w-[10rem] h-[2.5rem] text-[#1C9183]"/>
 
         <div className="relative w-full flex items-center justify-center">
           <Radial
-            className="absolute z-1"
+            className="absolute z-1 w-full"
             aria-hidden
           />
-          <div className="w-full max-w-[280px] aspect-square flex items-center justify-center">
+          <div className="w-full w-full aspect-square flex items-center justify-center">
             <OldyoungCharater className="w-[11.25rem] h-[11.25rem]] z-10" />
           </div>
         </div>
