@@ -20,7 +20,7 @@ const LoginPage = () => {
             aria-hidden
           />
           <div className="w-full max-w-[280px] aspect-square flex items-center justify-center">
-            <OldyoungCharater className="w-[70%] h-[70%] z-10" />
+            <OldyoungCharater className="w-[11.25rem] h-[11.25rem]] z-10" />
           </div>
         </div>
 
