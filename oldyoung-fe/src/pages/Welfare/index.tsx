@@ -49,7 +49,7 @@ const WelfarePage = ({ onBack }: WelfarePageProps) => {
     <div className="w-full flex flex-col">
       <CommonHeader title="복지기관" onBack={onBack} />
 
-      <div id="map" className="w-full h-[600px] mt-[3.25rem] px-[1.25rem]" />
+      <div id="map" className="w-full h-[600px] mt-[3rem] px-[1.25rem]" />
 
       {/* <div className="px-5">
         <ul className="space-y-1">
