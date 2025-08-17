@@ -1,5 +1,5 @@
-import MyInfoCard from "./_components/MyInfoCard.tsx";
-import MenuGrid from "./_components/MenuGrid.tsx";
+import MyInfoCard from "./_components/MyInfoCard";
+import MenuGrid from "./_components/MenuGrid";
 
 const HomePage = () => {
   return (
