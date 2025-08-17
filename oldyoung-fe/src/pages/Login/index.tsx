@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Oldyoung from "../../assets/icons/Oldyoung.svg?react";
 import OldyoungCharater from "../../assets/icons/OldyoungCharacter.svg?react";
 import Radial from "../../assets/icons/Radial.svg?react"; 
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const handleKakaoLogin = () => {
-    const server = import.meta.env.VITE_SERVER_API_URL;
-    window.location.href = `${server}/api/v1/auth/kakao/authorize`;
+    // const server = import.meta.env.VITE_SERVER_API_URL;
+    // window.location.href = `${server}/api/v1/auth/kakao/authorize`;
+    navigate("/home"); 
   };
 
   return (
