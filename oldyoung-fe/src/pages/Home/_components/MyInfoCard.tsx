@@ -3,7 +3,11 @@ import NextIcon from "../../../assets/icons/NextIcon.svg?react";
 import OldYoungCharacter from "../../../assets/icons/OldyoungCharacter.svg?react";
 import Oldyoung from "../../../assets/icons/Oldyoung.svg?react";
 
-const MyInfoCard = () => {
+interface MyInfoCardProps {
+  onClickIncome: () => void; 
+}
+
+const MyInfoCard = ({ onClickIncome }: MyInfoCardProps) => {
   return (
     <div className="relative bg-[#2CC3A3] rounded-[1rem] px-10 py-9 h-[12.125rem] text-white flex flex-col justify-end">
       <div className="absolute -top-37 left-0 w-full flex items-center justify-between px-3">
@@ -26,7 +30,10 @@ const MyInfoCard = () => {
         </div>
       </div>
 
-      <div className="flex w-full h-full items-end">
+      <div
+        className="flex w-full h-full items-end cursor-pointer"
+        onClick={onClickIncome}
+      >
         <div className="flex-shrink-0 text-[#2CC3A3] flex items-center justify-center mr-8">
           <MyHomeIcon />
         </div>

@@ -10,14 +10,18 @@ const menus = [
   { title: "하루미", desc: "건강한 하루를 AI와 함께", icon: <HarumiIcon /> },
 ];
 
+interface MenuGridProps {
+  onSelect: (title: string) => void;
+}
 
-const MenuGrid = () => {
+const MenuGrid = ({ onSelect }: MenuGridProps) => {
   return (
     <div className="grid grid-cols-2 gap-5 h-full">
       {menus.map((menu) => (
         <div
           key={menu.title}
-          className="bg-[#F9FAFB] rounded-[1rem] px-5 py-6 flex flex-col justify-between"
+          onClick={() => onSelect(menu.title)}  
+          className="cursor-pointer bg-[#F9FAFB] rounded-[1rem] px-5 py-6 flex flex-col justify-between hover:bg-[#f0f1f2] transition"
         >
           <div>
             <p className="font-semibold text-[1.5rem] text-[#1A7268]">{menu.title}</p>

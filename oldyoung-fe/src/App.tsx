@@ -6,7 +6,7 @@ import LoginPage from './pages/Login';
 import SigninPage from './pages/Signin';
 import LoginSuccess from './pages/Auth/LoginSuccess';
 import UserLayout from './layouts/UserLayout';
-import HomePage from './pages/Home';
+import HomeFunnelLayout from './layouts/HomeFunnelLayout';
 
 const publicRoutes = createBrowserRouter([
   {
@@ -32,7 +32,7 @@ const publicRoutes = createBrowserRouter([
       },
       {
         path: 'home',
-        element: <HomePage />,
+        element: <HomeFunnelLayout />,
         handle: { isPublic: true }, 
       },
     ],
