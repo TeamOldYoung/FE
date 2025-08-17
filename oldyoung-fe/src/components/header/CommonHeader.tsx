@@ -8,7 +8,7 @@ interface CommonHeaderProps {
 
 const CommonHeader = ({ title, onBack, colorClass = "text-black" }: CommonHeaderProps) => {
   return (
-    <div className={`w-full mt-10 flex items-center justify-center relative ${colorClass}`}>
+    <div className={`w-full mt-8 flex items-center justify-center relative ${colorClass}`}>
       {onBack && (
         <button
           onClick={onBack}

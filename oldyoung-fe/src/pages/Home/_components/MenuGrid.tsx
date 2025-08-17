@@ -4,10 +4,10 @@ import VoiceIcon from "../../../assets/icons/MicIcon.svg?react";
 import HarumiIcon from "../../../assets/icons/AIIcon.svg?react";
 
 const menus = [
-  { title: "복지 기관", desc: "연위치 주변 기관 찾기", icon: <WelfareIcon /> },
-  { title: "내 혜택", desc: "가능한 혜택 모아보기", icon: <BenefitIcon /> },
-  { title: "음성 검색", desc: "음성으로 문제 해결", icon: <VoiceIcon /> },
-  { title: "하루미", desc: "건강한 하루를 AI와 함께", icon: <HarumiIcon /> },
+  { title: "복지 기관", desc: "현위치 주변 \n 기관 찾기", icon: <WelfareIcon /> },
+  { title: "내 혜택", desc: "가능한 혜택 \n 모아보기", icon: <BenefitIcon /> },
+  { title: "음성 검색", desc: "음성으로 \n 문제 해결", icon: <VoiceIcon /> },
+  { title: "하루미", desc: "건강한 하루를 \n AI와 함께", icon: <HarumiIcon /> },
 ];
 
 interface MenuGridProps {
@@ -25,7 +25,7 @@ const MenuGrid = ({ onSelect }: MenuGridProps) => {
         >
           <div>
             <p className="font-semibold text-[1.5rem] text-[#1A7268]">{menu.title}</p>
-            <p className="font-semibold text-[1rem] text-[#4F4F4F]">{menu.desc}</p>
+            <p className="font-semibold text-[1rem] text-[#4F4F4F] whitespace-pre-line">{menu.desc}</p>
           </div>
 
           <div className="flex justify-end">
