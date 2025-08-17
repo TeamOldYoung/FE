@@ -1,12 +1,17 @@
+import CommonHeader from "../../components/header/CommonHeader";
+
 interface IncomePageProps {
   onBack: () => void;
 }
 
 const IncomePage = ({ onBack }: IncomePageProps) => {
   return (
-    <div>
-      IncomePage
-      <button onClick={onBack}>뒤로 가기</button>
+    <div className="w-full flex flex-col">
+      <CommonHeader title="내 정보" onBack={onBack} />
+
+      <div className="mt-[3.25rem] px-[1.25rem]">
+        내용
+      </div>
     </div>
   );
 };
