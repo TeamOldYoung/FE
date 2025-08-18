@@ -20,7 +20,7 @@ const VoicePage = ({ onBack }: VoicePageProps) => {
             <WarningIcon />
           </div>
          
-          <p className="text-center text-[1.25rem] mb-8.5 font-medium">
+          <p className="text-center text-[1.25rem] mb-8 font-medium">
             아직 개발 중인 서비스입니다
           </p>
 
