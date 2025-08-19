@@ -8,6 +8,7 @@ type FunnelSteps = {
   benefit: {};
   voice: {};
   harumi: {};
+  analyze: {};
 };
 
 type ReactRouterDomRouteOption = {
