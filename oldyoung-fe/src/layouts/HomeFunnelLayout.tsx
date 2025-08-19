@@ -7,6 +7,7 @@ import WelfarePage from "../pages/Welfare";
 import BenefitPage from "../pages/Benefit";
 import VoicePage from "../pages/Voice";
 import HarumiPage from "../pages/Harumi";
+import AnalyzePage from "../pages/Analyze";
 
 export default function HomeFunnelLayout() {
   const funnel = useFunnel<{
@@ -16,6 +17,7 @@ export default function HomeFunnelLayout() {
     benefit: {};
     voice: {};
     harumi: {};
+    analyze: {};
   }>({
     id: "home-funnel",
     initial: {
@@ -44,6 +46,9 @@ export default function HomeFunnelLayout() {
         )}
         harumi={({ history }) => (
             <HarumiPage onBack={() => history.push("home", {})} />
+        )}
+        analyze={({ history }) => (
+          <AnalyzePage onBack={() => history.push("home", {})} />
         )}
         />
     </FunnelContext.Provider>

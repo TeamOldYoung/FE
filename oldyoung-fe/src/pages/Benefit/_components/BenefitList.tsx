@@ -20,7 +20,7 @@ const BenefitList = ({ benefits }: { benefits: Benefit[] }) => {
           className="rounded-[1rem] border border-[3px] border-[#BBEFE9] px-5.5 py-5"
         >
           <div className="flex justify-between items-center mb-6">
-            <h3 className="font-semibold text-[1.5rem] break-words max-w-[16ch] leading-[1.5rem]">
+            <h3 className="font-semibold text-[1.5rem] break-words max-w-[14ch] leading-[1.5rem]">
               {item.title}
             </h3>
             <button
