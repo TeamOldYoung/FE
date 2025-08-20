@@ -9,6 +9,7 @@ interface WelfarePageProps {
 
 const WelfarePage = ({ onBack }: WelfarePageProps) => {
   const [_places, setPlaces] = useState<any[]>([]);
+  const [selectedPlace, setSelectedPlace] = useState<any | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -43,38 +44,6 @@ const WelfarePage = ({ onBack }: WelfarePageProps) => {
             map.panTo(new kakao.maps.LatLng(lat, lng));
           });
 
-          const directionEl = document.createElement("div");
-          directionEl.innerHTML = `
-            <svg width="36" height="28" viewBox="0 0 24 24" fill="#FFA07A" 
-                style="transform: rotate(0deg); position: relative; top: -28px;">
-              <polygon points="12,2 19,18 12,14 5,18" 
-                      fill="#FF3333" 
-                      stroke="#FF3333" 
-                      stroke-width="3" 
-                      stroke-linejoin="round" />
-            </svg>
-          `;
-          directionEl.style.width = "36px";
-          directionEl.style.height = "30px";
-          directionEl.style.transformOrigin = "18px 30px"; 
-
-          const directionOverlay = new kakao.maps.CustomOverlay({
-            position: new kakao.maps.LatLng(lat, lng),
-            content: directionEl,
-            yAnchor: 0.6,
-            xAnchor: 0.5,
-          });
-          directionOverlay.setMap(map);
-
-          if (window.DeviceOrientationEvent) {
-            window.addEventListener("deviceorientation", (event) => {
-              if (event.alpha !== null) {
-                const rotation = event.alpha;
-                directionEl.style.transform = `translateY(-14px) rotate(${rotation}deg)`; 
-              }
-            });
-          }
-
           const results = (await searchWelfarePlaces(lat, lng)) as any[];
           setPlaces(results);
 
@@ -94,6 +63,7 @@ const WelfarePage = ({ onBack }: WelfarePageProps) => {
             kakao.maps.event.addListener(marker, "click", () => {
               map.setLevel(3);
               map.panTo(new kakao.maps.LatLng(place.y, place.x));
+              setSelectedPlace(place); 
             });
           });
         });
@@ -105,8 +75,39 @@ const WelfarePage = ({ onBack }: WelfarePageProps) => {
     <>
       <CommonHeader title="복지기관" onBack={onBack} />
       <div className="w-full flex flex-col px-[1.365rem]">
-        <div id="map" className="w-full h-[40rem] mt-[2rem]" />
+        <div id="map" className="w-full h-[43rem] mt-[2rem]" />
       </div>
+
+      {selectedPlace && (
+        <div className="absolute bottom-0 left-0 right-0 bg-[#06BA96] shadow-2xl rounded-t-2xl p-6 h-1/4 transition-transform duration-300 z-50">
+          <div className="flex justify-between items-center mb-2">
+            <h2 className="text-[1.5rem] font-bold text-white">{selectedPlace.place_name}</h2>
+            <button 
+              onClick={() => setSelectedPlace(null)} 
+              className="text-[#2DC5B3] text-[1.25rem] px-3 py-2 bg-[#F3F3F3] rounded-lg leading-none"
+            >
+              닫기
+            </button>
+          </div>
+
+          <p className="text-[1.25rem] font-semibold text-[#E9E9E9] mb-4">{selectedPlace.address_name}</p>
+
+          {selectedPlace.phone && (
+            <p className="mt-2 text-[1.20rem] text-[#f3f3f3] font-medium underline">
+              ☎ 전화번호: {selectedPlace.phone}
+            </p>
+          )}
+
+          {selectedPlace.category_group_name && (
+            <div className="mt-3">
+              <p className="text-lg text-white mb-1">카테고리</p>
+              <span className="inline-block text-[1rem] text-[#2DC5B3] leading-none p-2 bg-[#E9E9E9] rounded-lg font-medium">
+                {selectedPlace.category_group_name}
+              </span>
+            </div>
+          )}
+        </div>
+      )}
     </>
   );
 };
