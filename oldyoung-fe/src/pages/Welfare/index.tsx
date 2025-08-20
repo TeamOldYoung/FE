@@ -29,7 +29,7 @@ const WelfarePage = ({ onBack }: WelfarePageProps) => {
 
           const myMarkerImage = new kakao.maps.MarkerImage(
             "/CurrentPin.svg",
-            new kakao.maps.Size(32, 32),
+            new kakao.maps.Size(44, 44),
             { offset: new kakao.maps.Point(16, 32) }
           );
 
@@ -49,7 +49,7 @@ const WelfarePage = ({ onBack }: WelfarePageProps) => {
 
           const placeMarkerImage = new kakao.maps.MarkerImage(
             "/Pin.svg",
-            new kakao.maps.Size(32, 32),
+            new kakao.maps.Size(36, 36),
             { offset: new kakao.maps.Point(16, 32) }
           );
 
