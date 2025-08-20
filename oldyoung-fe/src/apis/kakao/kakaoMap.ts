@@ -12,13 +12,15 @@ export function loadKakaoMap(): Promise<typeof window.kakao> {
     }
 
     const script = document.createElement("script");
-    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${import.meta.env.VITE_KAKAO_JS_KEY}&libraries=services`;
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${import.meta.env.VITE_KAKAO_JS_KEY}&libraries=services&autoload=false`;
     script.async = true;
     document.head.appendChild(script);
 
     script.onload = () => {
       if (window.kakao) {
-        resolve(window.kakao);
+        window.kakao.maps.load(() => {
+          resolve(window.kakao);
+        });
       } else {
         reject("Kakao SDK load failed");
       }
