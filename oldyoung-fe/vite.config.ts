@@ -16,8 +16,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        short_name: "LOOPy",
-        name: "LOOPy | 고객의 루틴에 나의 커피를 더하다",
+        short_name: "Oldyoung",
+        name: "Oldyoung | 숨겨진 복지혜택을 찾아드립니다",
         icons: [
           {
             src: "/icon.png",
@@ -37,8 +37,8 @@ export default defineConfig({
         ],
         start_url: ".",
         display: "standalone",
-        theme_color: "#6970F3",        
-        background_color: "#6970F3"
+        theme_color: "#2DC5B3",        
+        background_color: "#FFFFFF"
       },
       workbox: {
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
